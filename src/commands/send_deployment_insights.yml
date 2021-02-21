@@ -27,4 +27,4 @@ steps:
               \"buildUrl\": \"${CIRCLE_BUILD_URL}\",
               \"buildNum\": \"${CIRCLE_BUILD_NUM}\",
               \"branch\": \"${CIRCLE_BRANCH}\"
-            }]" 
+            }]"
