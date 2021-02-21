@@ -11,9 +11,7 @@ parameters:
     description: "NewRelic Insert Key"
 steps:
   - run:
-      environment:
-        PARAM_TO: <<parameters.to>>
-      name: Hello Greeting
+      name: Send Deployment Insights
       command: |
             echo <<parameters.account_id>>
             echo <<parameters.insert_key>>
