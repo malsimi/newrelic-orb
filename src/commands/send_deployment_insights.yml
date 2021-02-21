@@ -13,10 +13,8 @@ steps:
   - run:
       name: Send Deployment Insights
       command: |
-            echo <<parameters.account_id>>
-            echo <<parameters.insert_key>>
-            curl -X POST "https://insights-collector.newrelic.com/v1/accounts/${new_relic_account_id_dev}/events" \
-            -H "X-Insert-Key: ${new_relic_insert_key_dev}" \
+            curl -X POST "https://insights-collector.newrelic.com/v1/accounts/<<parameters.account_id>>/events" \
+            -H "X-Insert-Key: <<parameters.insert_key>>" \
             -H "Content-Type: application/json" \
             -d \
             "[{
