@@ -5,10 +5,13 @@ description: >
 parameters:
   account_id:
     type: string
-    description: "NewRelic accountId"
+    description: "NewRelic Account Id"
   insert_key:
     type: string
     description: "NewRelic Insert Key"
+  environment:
+    type: string
+    description: "Deployment Environment"
 steps:
   - run:
       name: Send Deployment Insights
@@ -26,5 +29,6 @@ steps:
               \"workflowId\": \"${CIRCLE_WORKFLOW_ID}\",
               \"buildUrl\": \"${CIRCLE_BUILD_URL}\",
               \"buildNum\": \"${CIRCLE_BUILD_NUM}\",
-              \"branch\": \"${CIRCLE_BRANCH}\"
+              \"branch\": \"${CIRCLE_BRANCH}\",
+              \"environment\": \"<<parameters.environment>>\"
             }]"
