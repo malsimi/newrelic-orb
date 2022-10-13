@@ -1,0 +1,26 @@
+description: >
+  This command sends deployment marker to New Relic
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+parameters:
+  application_id:
+    type: string
+    description: "NewRelic Application Id"
+  api_key:
+    type: string
+    description: "NewRelic API Key"
+steps:
+  - run:
+      name: Send Deployment Insights
+      command: |
+            curl -X POST "https://api.newrelic.com/v2/applications/<< parameters.application_id >>/deployments.json" \
+            -H "X-Api-Key: <<parameters.api_key>>" \
+            -H "Content-Type: application/json" \
+            -i \
+            -d \
+            "{
+              \"revision\": \"${CIRCLE_SHA1}\",
+              \"changelog\": \"${COMMIT_MESSAGE}\",
+              \"description\": \"${DESCRIPTION}\",
+              \"user\": \"${CIRCLE_USERNAME}\"
+            }"
