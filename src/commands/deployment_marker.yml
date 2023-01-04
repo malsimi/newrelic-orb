@@ -16,9 +16,11 @@ steps:
             -H "Content-Type: application/json" \
             -i \
             -d \
-            "{
-              \"revision\": \"${CIRCLE_SHA1}\",
-              \"changelog\": \"${COMMIT_MESSAGE}\",
-              \"description\": \"${DESCRIPTION}\",
-              \"user\": \"${CIRCLE_USERNAME}\"
+            "{ 
+                \"deployment\": {
+                  \"revision\": \"${CIRCLE_SHA1}\",
+                  \"changelog\": \"${COMMIT_MESSAGE}\",
+                  \"description\": \"${DESCRIPTION}\",
+                  \"user\": \"${CIRCLE_USERNAME}\"
+                }
             }"
