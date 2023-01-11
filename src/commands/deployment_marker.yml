@@ -16,7 +16,7 @@ steps:
             -H "Content-Type: application/json" \
             -i \
             -d \
-            "{ 
+            "{
                 \"deployment\": {
                   \"revision\": \"${CIRCLE_SHA1}\",
                   \"changelog\": \"${COMMIT_MESSAGE}\",
